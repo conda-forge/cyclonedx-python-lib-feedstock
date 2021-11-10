@@ -31,7 +31,8 @@ requirements:
     - requirements-parser >=0.2.0,<0.3.0
     - setuptools >=50.3.2,<59
     - toml >=0.10.2,<0.11.0
-    - typing-extensions >=3.10.0,<4.0.0
+    - types-setuptools >=57.4.2,<58.0.0
+    - types-toml >=0.10.1,<0.11.0
 
 test:
   source_files:
