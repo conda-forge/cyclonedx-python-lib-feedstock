@@ -42,7 +42,7 @@ test:
   commands:
     - pip check
     - cd src/tests
-    - pytest -vv --cov cyclonedx --cov-fail-under 93 --cov-report term-missing:skip-covered --no-cov-on-fail
+    - pytest -vv --cov cyclonedx --cov-fail-under 92 --cov-report term-missing:skip-covered --no-cov-on-fail
   requires:
     - pip
     - pytest-cov
