@@ -1,4 +1,4 @@
-{% set version = "0.10.2" %}
+{% set version = "0.11.0" %}
 
 package:
   name: cyclonedx-python-lib
@@ -7,10 +7,10 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx-python-lib-{{ version }}.tar.gz
-    sha256: 6f79742ca1728b9016ea272bbe58a60441848e6b4f9742918b8eb67ca987df3b
+    sha256: d0fab5e8fd219510e2fd3506bf4ecb80b3361851e4d359befd076c92c4f785b4
   - folder: src
     url: https://github.com/CycloneDX/cyclonedx-python-lib/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: 712e3ec2437bf925256381b008d23cb82e4f12e47d6bd413c48a6ff1f868bee6
+    sha256: b5e7c2be45e9ccbcf179e42ce705e96e59964f67021ce35959ea48d7e44aa6e8
 
 build:
   number: 0
@@ -31,7 +31,8 @@ requirements:
     - requirements-parser >=0.2.0,<0.3.0
     - setuptools >=50.3.2,<59
     - toml >=0.10.2,<0.11.0
-    - typing-extensions >=3.10.0,<4.0.0
+    - types-setuptools >=57.4.2,<58.0.0
+    - types-toml >=0.10.1,<0.11.0
 
 test:
   source_files:
@@ -41,7 +42,7 @@ test:
   commands:
     - pip check
     - cd src/tests
-    - pytest -vv --cov cyclonedx --cov-fail-under 93 --cov-report term-missing:skip-covered --no-cov-on-fail
+    - pytest -vv --cov cyclonedx --cov-fail-under 92 --cov-report term-missing:skip-covered --no-cov-on-fail
   requires:
     - pip
     - pytest-cov
