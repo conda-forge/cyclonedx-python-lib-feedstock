@@ -1,4 +1,4 @@
-{% set version = "0.11.1" %}
+{% set version = "0.12.0" %}
 
 package:
   name: cyclonedx-python-lib
@@ -7,17 +7,15 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx-python-lib-{{ version }}.tar.gz
-    sha256: cb0f1730ebe23c37820a9a2d4b42fc1d19fb3e8e6e92dfd3489673c76152e43c
+    sha256: d8a8620f2518af4519bf7874fb5639a20cf59dabd61aa3be495977135410b50a
   - folder: src
     url: https://github.com/CycloneDX/cyclonedx-python-lib/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: dfb705e1e4a4e4426e6f057f57ead665d46df203106df4a9f2caf01c76c2fa43
+    sha256: 82138e917aa08ac0192f1f05bd892d328c83b8b9db0937bbfd9f759496416b49
 
 build:
   number: 0
   noarch: python
-  script:
-    - {{ PYTHON }} {{ RECIPE_DIR }}/patch_meta.py
-    - cd dist && {{ PYTHON }} -m pip install . -vv
+  script: cd dist && {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -25,14 +23,15 @@ requirements:
     - poetry-core >=1.0.0
     - python >=3.6,<4.0
   run:
-    - importlib-metadata >=4.8.1,<5.0.0
-    - packageurl-python >=0.9.4,<0.10.0
+    - importlib-metadata >=3.4.0,<4.9
+    - packageurl-python >=0.3.0,<0.10.0
     - python >=3.6
     - requirements-parser >=0.2.0,<0.3.0
-    - setuptools >=50.3.2,<59
-    - toml >=0.10.2,<0.11.0
-    - types-setuptools >=57.4.2,<58.0.0
-    - types-toml >=0.10.1,<0.11.0
+    - setuptools >=47.0.0,<59.3
+    - toml >=0.10,<0.11.0
+    - types-setuptools >=57.0.0,<57.5
+    - types-toml >=0.10.0,<0.11.0
+    - typing-extensions >=3.10,<4
 
 test:
   source_files:
