@@ -10,7 +10,7 @@ source:
     sha256: ea2d5393a3de4a347e9c99c6c59efe4e3f64da2fb48e80f3e350fee289fa8a73
   - folder: src
     url: https://github.com/CycloneDX/cyclonedx-python-lib/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: deadb33f
+    sha256: ea25536138398fe9b796e5933ed9bd082af50446cf4ea1e96ca8770a82872cd8
 
 build:
   number: 0
