@@ -15,7 +15,10 @@ source:
 build:
   number: 0
   noarch: python
-  script: cd dist && {{ PYTHON }} -m pip install . -vv
+  script:
+    - cd dist && {{ PYTHON }} -m pip install . -vv
+    - |-
+      {{ PYTHON }} -c "(__import__('pathlib').Path(__import__('site').getsitepackages()[0]) / 'LICENSE').unlink()"
 
 requirements:
   host:
