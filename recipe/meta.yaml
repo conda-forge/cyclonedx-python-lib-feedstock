@@ -1,4 +1,4 @@
-{% set version = "0.12.3" %}
+{% set version = "1.1.0" %}
 
 package:
   name: cyclonedx-python-lib
@@ -7,10 +7,10 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx-python-lib-{{ version }}.tar.gz
-    sha256: ea2d5393a3de4a347e9c99c6c59efe4e3f64da2fb48e80f3e350fee289fa8a73
+    sha256: b8ff2a5c67f6add4104f38727c9c656dcf48e0089d87b8cd73b2cc944bd8b56e
   - folder: src
     url: https://github.com/CycloneDX/cyclonedx-python-lib/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: ea25536138398fe9b796e5933ed9bd082af50446cf4ea1e96ca8770a82872cd8
+    sha256: 3031f5e142928f3e1849ee1bd845aa998bbe21250107c1104bed152aa6fb8fd1
 
 build:
   number: 0
@@ -40,13 +40,16 @@ requirements:
 test:
   source_files:
     - src/tests
+    - src/cyclonedx/schema
   imports:
     - cyclonedx
   commands:
     - pip check
     - cd src/tests
-    - pytest -vv --cov cyclonedx --cov-fail-under 92 --cov-report term-missing:skip-covered --no-cov-on-fail
+    - pytest -vv --cov cyclonedx --cov-fail-under 90 --cov-report term-missing:skip-covered --no-cov-on-fail
   requires:
+    - jsonschema >=4.2.1
+    - lxml >=4.7.0
     - pip
     - pytest-cov
     - tox
