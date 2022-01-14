@@ -40,13 +40,16 @@ requirements:
 test:
   source_files:
     - src/tests
+    - src/cyclonedx/schema
   imports:
     - cyclonedx
   commands:
     - pip check
     - cd src/tests
-    - pytest -vv --cov cyclonedx --cov-fail-under 92 --cov-report term-missing:skip-covered --no-cov-on-fail
+    - pytest -vv --cov cyclonedx --cov-fail-under 90 --cov-report term-missing:skip-covered --no-cov-on-fail
   requires:
+    - jsonschema >=4.2.1
+    - lxml >=4.7.0
     - pip
     - pytest-cov
     - tox
