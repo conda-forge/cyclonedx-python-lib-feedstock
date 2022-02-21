@@ -53,6 +53,7 @@ test:
     - pip
     - pytest-cov
     - tox
+    - xmldiff
 
 about:
   home: https://github.com/CycloneDX/cyclonedx-python-lib
