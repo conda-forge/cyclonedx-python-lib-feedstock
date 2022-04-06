@@ -1,4 +1,4 @@
-{% set version = "2.1.0" %}
+{% set version = "2.1.1" %}
 
 package:
   name: cyclonedx-python-lib
@@ -7,10 +7,10 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx-python-lib-{{ version }}.tar.gz
-    sha256: bd9c0da2535e3d2faa865a8446c6fa6edb34a5586bb56f18df366f39502e3f94
+    sha256: 2f557cd8a68f44cd2632bed4b71c2590302cd944a44debc285f2597d8afbc87c
   - folder: src
     url: https://github.com/CycloneDX/cyclonedx-python-lib/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: a6b92143f6a59f49d2fd0f6f3441c935bb9d871b8d12ef25b1d87365e7ad7f91
+    sha256: b8338aa33af3900635a27f19ac0713ae38e258fbfaf368bc3345d894eb3799d0
 
 build:
   number: 0
@@ -35,7 +35,10 @@ requirements:
     - types-toml >=0.10.0,<0.11.0
     # :python_version < "3.8"
     - importlib-metadata >=3.4
-    - typing-extensions >=3.10,<4.0
+    - typing_extensions >=3.10,<4.0
+
+# TODO: see https://github.com/CycloneDX/cyclonedx-python-lib/issues/202
+{% set skips = '-k "not (TestModelComponentEvidence and test_same_2)"' %}
 
 test:
   source_files:
@@ -46,7 +49,7 @@ test:
   commands:
     - pip check
     - cd src/tests
-    - PYTHONPATH=. pytest -vv --cov cyclonedx --cov-fail-under 90 --cov-report term-missing:skip-covered --no-cov-on-fail
+    - PYTHONPATH=. pytest -vv --cov=cyclonedx --cov-fail-under=90 --cov-report=term-missing:skip-covered --no-cov-on-fail {{ skips }}
   requires:
     - jsonschema >=4.2.1
     - lxml >=4.7.0
