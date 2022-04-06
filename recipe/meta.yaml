@@ -13,7 +13,7 @@ source:
     sha256: b8338aa33af3900635a27f19ac0713ae38e258fbfaf368bc3345d894eb3799d0
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     - cd dist && {{ PYTHON }} -m pip install . -vv
@@ -24,9 +24,9 @@ requirements:
   host:
     - pip
     - poetry-core >=1.0.0
-    - python >=3.6,<4.0
+    - python >=3.6
   run:
-    - python >=3.6,<4.0
+    - python >=3.6
     # from poetry-generated setup.py
     - packageurl-python >=0.9
     - setuptools >=47.0.0
@@ -37,9 +37,6 @@ requirements:
     - importlib-metadata >=3.4
     - typing_extensions >=3.10,<4.0
 
-# TODO: see https://github.com/CycloneDX/cyclonedx-python-lib/issues/202
-{% set skips = '-k "not (TestModelComponentEvidence and test_same_2)"' %}
-
 test:
   source_files:
     - src/tests
@@ -47,9 +44,8 @@ test:
   imports:
     - cyclonedx
   commands:
+    # more in run_test.py
     - pip check
-    - cd src/tests
-    - PYTHONPATH=. pytest -vv --cov=cyclonedx --cov-fail-under=90 --cov-report=term-missing:skip-covered --no-cov-on-fail {{ skips }}
   requires:
     - jsonschema >=4.2.1
     - lxml >=4.7.0
