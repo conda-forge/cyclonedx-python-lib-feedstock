@@ -35,7 +35,6 @@ requirements:
     - types-toml >=0.10.0,<0.11.0
     # :python_version < "3.8"
     - importlib-metadata >=3.4
-    - typing_extensions >=3.10,<4.0
 
 test:
   source_files:
