@@ -30,9 +30,8 @@ requirements:
     # from poetry-generated setup.py
     - packageurl-python >=0.9
     - setuptools >=47.0.0
+    - sortedcontainers >=2.4.0,<3.0.0
     - toml >=0.10.0,<0.11.0
-    - types-setuptools >=57.0.0
-    - types-toml >=0.10.0,<0.11.0
     # :python_version < "3.8"
     - importlib-metadata >=3.4
 
