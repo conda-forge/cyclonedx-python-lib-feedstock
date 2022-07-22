@@ -1,4 +1,4 @@
-{% set version = "2.6.0" %}
+{% set version = "2.7.0" %}
 
 package:
   name: cyclonedx-python-lib
@@ -7,10 +7,10 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx-python-lib-{{ version }}.tar.gz
-    sha256: 8235aad70efc0f84cdf154b8c28802b605ee8133cd5c9a247d834bdb8b6c827a
+    sha256: d7ac73c2028f35ee2667ff1f1f9b98ecc6704f140ccecd53d78fe82968124ded
   - folder: src
     url: https://github.com/CycloneDX/cyclonedx-python-lib/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: 54a1359a92e5cd121b92756d09f334aff568d38acd1ec4050114983e3e138195
+    sha256: fa4788964ff572e14b195e2d81e2d1717998b3149ddcdf7db622f45a55e41ec6
 
 build:
   number: 0
