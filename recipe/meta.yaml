@@ -45,6 +45,7 @@ test:
     # more in run_test.py
     - pip check
   requires:
+    - ddt >=1.6.0,<2.0.0
     - jsonschema >=4.2.1
     - lxml >=4.7.0
     - pip
