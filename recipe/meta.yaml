@@ -1,4 +1,4 @@
-{% set version = "2.7.1" %}
+{% set version = "3.1.0" %}
 
 package:
   name: cyclonedx-python-lib
@@ -7,10 +7,10 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx-python-lib-{{ version }}.tar.gz
-    sha256: 493bf2f30e26c48f305f745ed8580ce10d05a8d68d62a598fe95f05a0d9007dc
+    sha256: 39e9d36347d4dc736474ab4f3a7cd7bc91050c9315df698f83a6d8bbcb290744
   - folder: src
     url: https://github.com/CycloneDX/cyclonedx-python-lib/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: f0770ab4278e4b15e9ec04692cceaa3428d02cd590745000b7c34a312fb9b22f
+    sha256: 64186fd2c331401ff9eeaf2c675d27b6430b4e696c9fe08119efbf0a2c93d4c6
 
 build:
   number: 0
@@ -45,6 +45,7 @@ test:
     # more in run_test.py
     - pip check
   requires:
+    - ddt >=1.6.0,<2.0.0
     - jsonschema >=4.2.1
     - lxml >=4.7.0
     - pip
