@@ -6,7 +6,7 @@ package:
 
 source:
   - folder: dist
-    url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx-python-lib-{{ version }}.tar.gz
+    url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-{{ version }}.tar.gz
     sha256: 48ae942a892e8385f4e0193d2e295a338df9ab864652081406c26f58085d2b35
   - folder: src
     url: https://github.com/CycloneDX/cyclonedx-python-lib/releases/download/v{{ version }}/cyclonedx_python_lib-{{ version }}.tar.gz
