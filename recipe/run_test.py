@@ -6,7 +6,7 @@ import sys
 # test sources
 SRC_DIR = Path(os.environ["SRC_DIR"])
 TESTS = SRC_DIR / "src/tests"
-COV_THRESHOLD = 90
+COV_THRESHOLD = 91
 
 os.environ.update(
     # see https://github.com/CycloneDX/cyclonedx-python-lib/issues/202
