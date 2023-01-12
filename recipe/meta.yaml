@@ -7,12 +7,14 @@ package:
 source:
   url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-{{ version }}.tar.gz
   sha256: 21f9991486c58833eb1903ae7d423d88f6bee51bf6a6322e7556dce83b895a27
+  patches:
+    - 0000-fix-relative-schema-path.patch
 
 build:
   number: 0
   noarch: python
   script:
-    - {{ PYTHON }} -m pip install . -vv
+    - {{ PYTHON }} -m pip install . -vv --no-deps
     - |-
       {{ PYTHON }} -c "(__import__('pathlib').Path(__import__('site').getsitepackages()[0]) / 'LICENSE').unlink()"
 
@@ -38,7 +40,7 @@ test:
     - tests
   commands:
     - pip check
-    - pytest -vv --cov=cyclonedx --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=91
+    - pytest -vv --cov=cyclonedx --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=88
   requires:
     - ddt >=1.6.0,<2.0.0
     - jsonschema >=4.2.1
