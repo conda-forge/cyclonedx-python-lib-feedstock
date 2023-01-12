@@ -5,18 +5,15 @@ package:
   version: {{ version }}
 
 source:
-  - folder: dist
-    url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-{{ version }}.tar.gz
-    sha256: 21f9991486c58833eb1903ae7d423d88f6bee51bf6a6322e7556dce83b895a27
-  - folder: src
-    url: https://github.com/CycloneDX/cyclonedx-python-lib/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: c98a1c9171b5ae8e5d781fcb7d348f45caa033f721df280877b54a5debbeb23a
+  folder: dist
+  url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-{{ version }}.tar.gz
+  sha256: 21f9991486c58833eb1903ae7d423d88f6bee51bf6a6322e7556dce83b895a27
 
 build:
   number: 0
   noarch: python
   script:
-    - cd dist && {{ PYTHON }} -m pip install . -vv
+    - {{ PYTHON }} -m pip install . -vv
     - |-
       {{ PYTHON }} -c "(__import__('pathlib').Path(__import__('site').getsitepackages()[0]) / 'LICENSE').unlink()"
 
@@ -36,9 +33,6 @@ requirements:
     - importlib-metadata >=3.4
 
 test:
-  source_files:
-    - src/tests
-    - src/cyclonedx/schema
   imports:
     - cyclonedx
   commands:
@@ -57,7 +51,7 @@ about:
   home: https://github.com/CycloneDX/cyclonedx-python-lib
   summary: A library for producing CycloneDX SBOM (Software Bill of Materials) files.
   license: Apache-2.0
-  license_file: dist/LICENSE
+  license_file: LICENSE
 
 extra:
   recipe-maintainers:
