@@ -1,4 +1,4 @@
-{% set version = "3.1.4" %}
+{% set version = "3.1.5" %}
 
 package:
   name: cyclonedx-python-lib
@@ -6,9 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-{{ version }}.tar.gz
-  sha256: 21f9991486c58833eb1903ae7d423d88f6bee51bf6a6322e7556dce83b895a27
-  patches:
-    - 0000-fix-relative-schema-path.patch
+  sha256: 1ccd482024a30b95c4fffb3fe567a9df97b705f34c1075f8abde8537867600c3
 
 build:
   number: 0
@@ -16,7 +14,7 @@ build:
   script:
     - {{ PYTHON }} -m pip install . -vv --no-deps
     - |-
-      {{ PYTHON }} -c "(__import__('pathlib').Path(__import__('site').getsitepackages()[0]) / 'LICENSE').unlink()"
+      {{ PYTHON }} -c "assert not (__import__('pathlib').Path(__import__('site').getsitepackages()[0]) / 'LICENSE').exists()"
 
 requirements:
   host:
