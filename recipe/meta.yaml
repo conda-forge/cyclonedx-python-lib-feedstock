@@ -20,14 +20,13 @@ requirements:
   host:
     - pip
     - poetry-core >=1.0.0
-    - python >=3.6
+    - python >=3.7
   run:
-    - python >=3.6
+    - python >=3.7
     # from poetry-generated setup.py
     - packageurl-python >=0.9
-    - setuptools >=47.0.0
+    - py-serializable >=0.11.1,<0.12.0
     - sortedcontainers >=2.4.0,<3.0.0
-    - toml >=0.10.0,<0.11.0
     # :python_version < "3.8"
     - importlib-metadata >=3.4
 
@@ -41,7 +40,7 @@ test:
     - pytest -vv --cov=cyclonedx --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=88
   requires:
     - ddt >=1.6.0,<2.0.0
-    - jsonschema >=4.2.1
+    - jsonschema >=4.4.0
     - lxml >=4.7.0
     - pip
     - pytest-cov
