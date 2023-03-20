@@ -1,4 +1,4 @@
-{% set version = "3.1.5" %}
+{% set version = "4.0.0" %}
 
 package:
   name: cyclonedx-python-lib
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-{{ version }}.tar.gz
-  sha256: 1ccd482024a30b95c4fffb3fe567a9df97b705f34c1075f8abde8537867600c3
+  sha256: 4124dc111580fc026442525729febc956072788d1fc2b3300a54d27b5ff8b1b5
 
 build:
   number: 0
