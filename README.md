@@ -1,11 +1,11 @@
-About cyclonedx-python-lib
-==========================
+About cyclonedx-python-lib-feedstock
+====================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cyclonedx-python-lib-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/CycloneDX/cyclonedx-python-lib
 
 Package license: Apache-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cyclonedx-python-lib-feedstock/blob/main/LICENSE.txt)
 
 Summary: A library for producing CycloneDX SBOM (Software Bill of Materials) files.
 
