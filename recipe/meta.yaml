@@ -1,4 +1,4 @@
-{% set version = "4.1.0" %}
+{% set version = "4.2.0" %}
 
 package:
   name: cyclonedx-python-lib
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-{{ version }}.tar.gz
-  sha256: 7996657f9788758ed05bea8c247e3e6ffcccfbc48818cd34795a4ae094b307bd
+  sha256: c899a5aeccd6bf141a0a53c9fadb4daf49225a73ceb2fa093cce326aeb209a13
 
 build:
   number: 0
@@ -24,11 +24,10 @@ requirements:
   run:
     - python >=3.7
     # from poetry-generated setup.py
+    - license-expression >=30.0.0,<31.0.0
     - packageurl-python >=0.11
     - py-serializable >=0.11.1,<0.12.0
     - sortedcontainers >=2.4.0,<3.0.0
-    # :python_version < "3.8"
-    - importlib-metadata >=3.4
 
 test:
   imports:
