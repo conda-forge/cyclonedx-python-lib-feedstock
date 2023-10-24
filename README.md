@@ -7,7 +7,7 @@ Home: https://github.com/CycloneDX/cyclonedx-python-lib
 
 Package license: Apache-2.0
 
-Summary: A library for producing CycloneDX SBOM (Software Bill of Materials) files.
+Summary: Python library for CycloneDX
 
 Current build status
 ====================
@@ -28,6 +28,9 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-cyclonedx--python--lib-green.svg)](https://anaconda.org/conda-forge/cyclonedx-python-lib) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/cyclonedx-python-lib.svg)](https://anaconda.org/conda-forge/cyclonedx-python-lib) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/cyclonedx-python-lib.svg)](https://anaconda.org/conda-forge/cyclonedx-python-lib) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/cyclonedx-python-lib.svg)](https://anaconda.org/conda-forge/cyclonedx-python-lib) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-cyclonedx--python--lib--with--json--validation-green.svg)](https://anaconda.org/conda-forge/cyclonedx-python-lib-with-json-validation) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/cyclonedx-python-lib-with-json-validation.svg)](https://anaconda.org/conda-forge/cyclonedx-python-lib-with-json-validation) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/cyclonedx-python-lib-with-json-validation.svg)](https://anaconda.org/conda-forge/cyclonedx-python-lib-with-json-validation) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/cyclonedx-python-lib-with-json-validation.svg)](https://anaconda.org/conda-forge/cyclonedx-python-lib-with-json-validation) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-cyclonedx--python--lib--with--validation-green.svg)](https://anaconda.org/conda-forge/cyclonedx-python-lib-with-validation) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/cyclonedx-python-lib-with-validation.svg)](https://anaconda.org/conda-forge/cyclonedx-python-lib-with-validation) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/cyclonedx-python-lib-with-validation.svg)](https://anaconda.org/conda-forge/cyclonedx-python-lib-with-validation) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/cyclonedx-python-lib-with-validation.svg)](https://anaconda.org/conda-forge/cyclonedx-python-lib-with-validation) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-cyclonedx--python--lib--with--xml--validation-green.svg)](https://anaconda.org/conda-forge/cyclonedx-python-lib-with-xml-validation) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/cyclonedx-python-lib-with-xml-validation.svg)](https://anaconda.org/conda-forge/cyclonedx-python-lib-with-xml-validation) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/cyclonedx-python-lib-with-xml-validation.svg)](https://anaconda.org/conda-forge/cyclonedx-python-lib-with-xml-validation) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/cyclonedx-python-lib-with-xml-validation.svg)](https://anaconda.org/conda-forge/cyclonedx-python-lib-with-xml-validation) |
 
 Installing cyclonedx-python-lib
 ===============================
@@ -39,16 +42,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `cyclonedx-python-lib` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `cyclonedx-python-lib, cyclonedx-python-lib-with-json-validation, cyclonedx-python-lib-with-validation, cyclonedx-python-lib-with-xml-validation` can be installed with `conda`:
 
 ```
-conda install cyclonedx-python-lib
+conda install cyclonedx-python-lib cyclonedx-python-lib-with-json-validation cyclonedx-python-lib-with-validation cyclonedx-python-lib-with-xml-validation
 ```
 
 or with `mamba`:
 
 ```
-mamba install cyclonedx-python-lib
+mamba install cyclonedx-python-lib cyclonedx-python-lib-with-json-validation cyclonedx-python-lib-with-validation cyclonedx-python-lib-with-xml-validation
 ```
 
 It is possible to list all of the versions of `cyclonedx-python-lib` available on your platform with `conda`:
