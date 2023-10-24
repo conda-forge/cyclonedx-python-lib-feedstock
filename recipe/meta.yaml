@@ -1,3 +1,4 @@
+{% set min_python = "python >=3.8" %}
 {% set version = "5.0.1" %}
 {% set min_python = "python >=3.8" %}
 
@@ -22,7 +23,6 @@ requirements:
 outputs:
   - name: cyclonedx-python-lib
     build:
-      noarch: python
       script:
         - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
         # TODO: restore after https://github.com/CycloneDX/cyclonedx-python-lib/issues/435
@@ -52,7 +52,6 @@ outputs:
 
   - name: cyclonedx-python-lib-with-json-validation
     build:
-      noarch: python
     requirements:
       host:
         - {{ min_python }}
@@ -64,7 +63,6 @@ outputs:
 
   - name: cyclonedx-python-lib-with-xml-validation
     build:
-      noarch: python
     requirements:
       host:
         - {{ min_python }}
@@ -76,7 +74,6 @@ outputs:
 
   - name: cyclonedx-python-lib-with-validation
     build:
-      noarch: python
     requirements:
       host:
         - {{ min_python }}
