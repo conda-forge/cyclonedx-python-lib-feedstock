@@ -1,5 +1,6 @@
 {% set min_python = "python >=3.8" %}
-{% set version = "5.2.0" %}
+{% set min_python = "python >=3.8" %}
+{% set version = "6.0.0" %}
 {% set min_python = "python >=3.8" %}
 
 package:
@@ -8,7 +9,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-{{ version }}.tar.gz
-  sha256: b9ebf2c0520721d2f8ee16aadc2bbb9d4e015862c84ab1691a49b177f3014d99
+  sha256: a848f957aa33ed86c75535a455dbe0bc77d4b5356600470c72d9cc6db63727b6
 
 build:
   noarch: python
