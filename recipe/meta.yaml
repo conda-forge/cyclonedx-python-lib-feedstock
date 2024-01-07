@@ -1,4 +1,3 @@
-{% set min_python = "python >=3.8" %}
 {% set version = "6.3.0" %}
 {% set min_python = "python >=3.8" %}
 
@@ -41,7 +40,7 @@ outputs:
         # from poetry-generated setup.py
         - license-expression >=30.0.0,<31.0.0
         - packageurl-python >=0.11
-        - py-serializable >=0.16.0,<0.17.0
+        - py-serializable >=0.16.0,<0.18.0
         - sortedcontainers >=2.4.0,<3.0.0
     test: &simple_test
       imports:
@@ -72,7 +71,7 @@ outputs:
       run:
         - {{ min_python }}
         - {{ pin_subpackage("cyclonedx-python-lib", exact=True) }}
-        - lxml >=4,<5
+        - lxml >=4,<6
     test: *simple_test
 
   - name: cyclonedx-python-lib-with-validation
@@ -95,7 +94,7 @@ outputs:
         - pip check
         - pytest -vv --color=yes --tb=long --cov=cyclonedx --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=93
       requires:
-        - ddt >=1.6.0,<2.0.0
+        - ddt >=1.7.1,<2.0.0
         - pip
         - pytest-cov
         - tox
