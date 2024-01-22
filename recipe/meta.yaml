@@ -1,4 +1,3 @@
-{% set min_python = "python >=3.8" %}
 {% set version = "6.4.0" %}
 {% set min_python = "python >=3.8" %}
 
@@ -40,8 +39,8 @@ outputs:
         - {{ min_python }}
         # from poetry-generated setup.py
         - license-expression >=30.0.0,<31.0.0
-        - packageurl-python >=0.11
-        - py-serializable >=0.16.0,<0.18.0
+        - packageurl-python >=0.11,<2
+        - py-serializable >=0.16.0,<2
         - sortedcontainers >=2.4.0,<3.0.0
     test: &simple_test
       imports:
