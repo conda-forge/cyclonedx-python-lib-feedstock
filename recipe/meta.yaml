@@ -1,4 +1,4 @@
-{% set version = "6.3.0" %}
+{% set version = "6.4.0" %}
 {% set min_python = "python >=3.8" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-{{ version }}.tar.gz
-  sha256: 82f2489de3c0cadad5af1ad7fa6b6a185f985746370245d38769699c734533c6
+  sha256: a877784f5f1066398336b61cdb7413311e93a6bc46a5065ba0d8e0dddbc54103
 
 build:
   noarch: python
@@ -39,8 +39,8 @@ outputs:
         - {{ min_python }}
         # from poetry-generated setup.py
         - license-expression >=30.0.0,<31.0.0
-        - packageurl-python >=0.11
-        - py-serializable >=0.16.0,<0.18.0
+        - packageurl-python >=0.11,<2
+        - py-serializable >=0.16.0,<2
         - sortedcontainers >=2.4.0,<3.0.0
     test: &simple_test
       imports:
