@@ -1,6 +1,8 @@
-{% set min_python = "python >=3.8" %}
 {% set version = "6.4.2" %}
 {% set min_python = "python >=3.8" %}
+
+# handle undefined PYTHON when rendering in `noarch:generic`
+{% if PYTHON is undefined %}{% set PYTHON = "$PYTHON" %}{% endif %}
 
 package:
   name: cyclonedx-python-lib
@@ -26,16 +28,14 @@ outputs:
       noarch: python
       script:
         - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-        # TODO: restore after https://github.com/CycloneDX/cyclonedx-python-lib/issues/435
-        # - |-
-        #   {{ PYTHON }} -c "assert not (__import__('pathlib').Path(__import__('site').getsitepackages()[0]) / 'LICENSE').exists()"
+        # avoid regressing on https://github.com/CycloneDX/cyclonedx-python-lib/issues/435
         - |-
-          {{ PYTHON }} -c "import os, pathlib; sp = pathlib.Path(os.environ['SP_DIR']); [(sp / f).unlink() for f in ['README.md', 'LICENSE', 'NOTICE']]"
+           {{ PYTHON }} -c "assert not (__import__('pathlib').Path(__import__('site').getsitepackages()[0]) / 'LICENSE').exists()"
     requirements:
       host:
         - {{ min_python }}
         - pip
-        - poetry-core >=1.0.0
+        - poetry-core >=1.8.1
       run:
         - {{ min_python }}
         # from poetry-generated setup.py
@@ -53,7 +53,7 @@ outputs:
 
   - name: cyclonedx-python-lib-with-json-validation
     build:
-      noarch: python
+      noarch: generic
     requirements:
       host:
         - {{ min_python }}
@@ -65,7 +65,7 @@ outputs:
 
   - name: cyclonedx-python-lib-with-xml-validation
     build:
-      noarch: python
+      noarch: generic
     requirements:
       host:
         - {{ min_python }}
@@ -77,7 +77,7 @@ outputs:
 
   - name: cyclonedx-python-lib-with-validation
     build:
-      noarch: python
+      noarch: generic
     requirements:
       host:
         - {{ min_python }}
