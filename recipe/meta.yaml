@@ -1,5 +1,8 @@
-{% set version = "6.4.1" %}
+{% set version = "6.4.2" %}
 {% set min_python = "python >=3.8" %}
+
+# handle undefined PYTHON when rendering in `noarch:generic`
+{% if PYTHON is undefined %}{% set PYTHON = "$PYTHON" %}{% endif %}
 
 package:
   name: cyclonedx-python-lib
@@ -7,7 +10,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-{{ version }}.tar.gz
-  sha256: aca5d8cf10f8d8420ba621e0cf4a24b98708afb68ca2ca72d7f2cc6394c75681
+  sha256: b857972c6a7317faa66ec4ed4b6040dae7fca82e40eddfbeaa7f0f37f9a7cac7
 
 build:
   noarch: python
@@ -25,16 +28,14 @@ outputs:
       noarch: python
       script:
         - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-        # TODO: restore after https://github.com/CycloneDX/cyclonedx-python-lib/issues/435
-        # - |-
-        #   {{ PYTHON }} -c "assert not (__import__('pathlib').Path(__import__('site').getsitepackages()[0]) / 'LICENSE').exists()"
+        # avoid regressing on https://github.com/CycloneDX/cyclonedx-python-lib/issues/435
         - |-
-          {{ PYTHON }} -c "import os, pathlib; sp = pathlib.Path(os.environ['SP_DIR']); [(sp / f).unlink() for f in ['README.md', 'LICENSE', 'NOTICE']]"
+           {{ PYTHON }} -c "assert not (__import__('pathlib').Path(__import__('site').getsitepackages()[0]) / 'LICENSE').exists()"
     requirements:
       host:
         - {{ min_python }}
         - pip
-        - poetry-core >=1.0.0
+        - poetry-core >=1.8.1
       run:
         - {{ min_python }}
         # from poetry-generated setup.py
@@ -52,7 +53,7 @@ outputs:
 
   - name: cyclonedx-python-lib-with-json-validation
     build:
-      noarch: python
+      noarch: generic
     requirements:
       host:
         - {{ min_python }}
@@ -64,7 +65,7 @@ outputs:
 
   - name: cyclonedx-python-lib-with-xml-validation
     build:
-      noarch: python
+      noarch: generic
     requirements:
       host:
         - {{ min_python }}
@@ -76,7 +77,7 @@ outputs:
 
   - name: cyclonedx-python-lib-with-validation
     build:
-      noarch: python
+      noarch: generic
     requirements:
       host:
         - {{ min_python }}
