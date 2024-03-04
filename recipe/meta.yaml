@@ -1,4 +1,4 @@
-{% set version = "6.4.2" %}
+{% set version = "6.4.3" %}
 {% set min_python = "python >=3.8" %}
 
 # handle undefined PYTHON when rendering in `noarch:generic`
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-{{ version }}.tar.gz
-  sha256: b857972c6a7317faa66ec4ed4b6040dae7fca82e40eddfbeaa7f0f37f9a7cac7
+  sha256: 3d9450e500ca6f7cf9625e7bff700599dcca70e4a2180705b61917c59743506e
 
 build:
   noarch: python
@@ -30,7 +30,7 @@ outputs:
         - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
         # avoid regressing on https://github.com/CycloneDX/cyclonedx-python-lib/issues/435
         - |-
-           {{ PYTHON }} -c "assert not (__import__('pathlib').Path(__import__('site').getsitepackages()[0]) / 'LICENSE').exists()"
+          {{ PYTHON }} -c "assert not (__import__('pathlib').Path(__import__('site').getsitepackages()[0]) / 'LICENSE').exists()"
     requirements:
       host:
         - {{ min_python }}
