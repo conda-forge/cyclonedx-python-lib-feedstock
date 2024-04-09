@@ -1,6 +1,4 @@
-{% set min_python = "python >=3.8" %}
 {% set version = "7.0.0" %}
-{% set min_python = "python >=3.8" %}
 
 # handle undefined PYTHON when rendering in `noarch:generic`
 {% if PYTHON is undefined %}{% set PYTHON = "$PYTHON" %}{% endif %}
@@ -19,9 +17,9 @@ build:
 
 requirements:
   host:
-    - {{ min_python }}
+    - python >=3.8
   run:
-    - {{ min_python }}
+    - python >=3.8
 
 outputs:
   - name: cyclonedx-python-lib
@@ -34,15 +32,15 @@ outputs:
           {{ PYTHON }} -c "assert not (__import__('pathlib').Path(__import__('site').getsitepackages()[0]) / 'LICENSE').exists()"
     requirements:
       host:
-        - {{ min_python }}
         - pip
         - poetry-core >=1.8.1
+        - python >=3.8
       run:
-        - {{ min_python }}
         # from poetry-generated setup.py
         - license-expression >=30.0.0,<31.0.0
         - packageurl-python >=0.11,<2
-        - py-serializable >=0.16.0,<2
+        - py-serializable >=1.0.3,<2
+        - python >=3.8
         - sortedcontainers >=2.4.0,<3.0.0
     test: &simple_test
       imports:
@@ -56,10 +54,7 @@ outputs:
     build:
       noarch: generic
     requirements:
-      host:
-        - {{ min_python }}
       run:
-        - {{ min_python }}
         - {{ pin_subpackage("cyclonedx-python-lib", exact=True) }}
         - jsonschema-with-format >=4.18,<5.0
     test: *simple_test
@@ -68,10 +63,7 @@ outputs:
     build:
       noarch: generic
     requirements:
-      host:
-        - {{ min_python }}
       run:
-        - {{ min_python }}
         - {{ pin_subpackage("cyclonedx-python-lib", exact=True) }}
         - lxml >=4,<6
     test: *simple_test
@@ -80,10 +72,7 @@ outputs:
     build:
       noarch: generic
     requirements:
-      host:
-        - {{ min_python }}
       run:
-        - {{ min_python }}
         - {{ pin_subpackage("cyclonedx-python-lib", exact=True) }}
         - {{ pin_subpackage("cyclonedx-python-lib-with-json-validation", exact=True) }}
         - {{ pin_subpackage("cyclonedx-python-lib-with-xml-validation", exact=True) }}
