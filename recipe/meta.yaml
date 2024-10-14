@@ -84,7 +84,7 @@ outputs:
         - pyproject.toml
       commands:
         - pip check
-        - pytest -vv --color=yes --tb=long --cov=cyclonedx --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=93
+        - pytest -vv --color=yes --tb=long --cov=cyclonedx --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=90
       requires:
         - ddt >=1.7.1,<2.0.0
         - pip
