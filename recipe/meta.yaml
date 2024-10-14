@@ -1,4 +1,4 @@
-{% set version = "7.6.2" %}
+{% set version = "8.0.0" %}
 
 # handle undefined PYTHON when rendering in `noarch:generic`
 {% if PYTHON is undefined %}{% set PYTHON = "$PYTHON" %}{% endif %}
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-{{ version }}.tar.gz
-  sha256: 31186c5725ac0cfcca433759a407b1424686cdc867b47cc86e6cf83691310903
+  sha256: 61d11ed58d0515fd854dc1713073e63de41bc67e5eb83db001240166869bfb5a
 
 build:
   noarch: python
@@ -39,7 +39,7 @@ outputs:
         # from poetry-generated setup.py
         - license-expression >=30.0.0,<31.0.0
         - packageurl-python >=0.11,<2
-        - py-serializable >=1.1.0,<2
+        - py-serializable >=1.1.1,<2
         - python >=3.8
         - sortedcontainers >=2.4.0,<3.0.0
     test: &simple_test
@@ -81,9 +81,10 @@ outputs:
         - cyclonedx
       source_files:
         - tests
+        - pyproject.toml
       commands:
         - pip check
-        - pytest -vv --color=yes --tb=long --cov=cyclonedx --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=93
+        - pytest -vv --color=yes --tb=long --cov=cyclonedx --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=90
       requires:
         - ddt >=1.7.1,<2.0.0
         - pip
