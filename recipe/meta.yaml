@@ -1,4 +1,4 @@
-{% set version = "8.0.0" %}
+{% set version = "8.1.0" %}
 
 # handle undefined PYTHON when rendering in `noarch:generic`
 {% if PYTHON is undefined %}{% set PYTHON = "$PYTHON" %}{% endif %}
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-{{ version }}.tar.gz
-  sha256: 61d11ed58d0515fd854dc1713073e63de41bc67e5eb83db001240166869bfb5a
+  sha256: 3d1964973054503e54b86f89bc956c211a2eab46e816f685d6a0dab23d186431
 
 build:
   noarch: python
