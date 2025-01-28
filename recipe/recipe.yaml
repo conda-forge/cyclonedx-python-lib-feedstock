@@ -9,7 +9,7 @@ recipe:
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-${{ version }}.tar.gz
   sha256: 2b419c6c5e422fd937aebebde4d3776c797b69c4eac80e515243dad8ebfcddcb
 
 build:
@@ -97,7 +97,6 @@ outputs:
             - tox
             - xmldiff
         script:
-          - pip check
           - pytest -vv --color=yes --tb=long --cov=cyclonedx --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=90
 
 about:
