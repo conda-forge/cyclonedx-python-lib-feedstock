@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "8.5.1"
+  version: "8.6.0"
 
 recipe:
   name: cyclonedx-python-lib
@@ -10,7 +10,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-${{ version }}.tar.gz
-  sha256: 2b419c6c5e422fd937aebebde4d3776c797b69c4eac80e515243dad8ebfcddcb
+  sha256: e8fff6fccbc84db0bf61516dd99600c96d93b04be2d9f515249ec002e834b0b2
 
 build:
   number: 0
@@ -88,8 +88,8 @@ outputs:
           imports: cyclonedx
       - files:
           source:
-          - pyproject.toml
-          - tests/
+            - pyproject.toml
+            - tests/
         requirements:
           run:
             - ddt >=1.7.1,<2.0.0
