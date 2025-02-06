@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "8.6.0"
+  version: "8.7.0"
 
 recipe:
   name: cyclonedx-python-lib
@@ -10,7 +10,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-${{ version }}.tar.gz
-  sha256: e8fff6fccbc84db0bf61516dd99600c96d93b04be2d9f515249ec002e834b0b2
+  sha256: c10ad7f28b1d03096c7cb1cb7b06f2e9e33a6a6b954b75b88f8b7b91dbf976f4
 
 build:
   number: 0
