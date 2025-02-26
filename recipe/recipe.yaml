@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "8.9.0"
+  version: "9.0.2"
 
 recipe:
   name: cyclonedx-python-lib
@@ -10,7 +10,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-${{ version }}.tar.gz
-  sha256: 112c6e6e5290420e32026c49b8391645bf3e646c7602f7bdb5d02c6febbaa073
+  sha256: 5a653e3c2536c648c63a3ed090320e5a1ee58438cd28774260f77f3adb444290
 
 build:
   number: 0
@@ -35,7 +35,7 @@ outputs:
         # from poetry-generated setup.py
         - license-expression >=30.0.0,<31.0.0
         - packageurl-python >=0.11,<2
-        - py-serializable >=1.1.1,<2
+        - py-serializable >=2,<3
         - python >=${{ python_min }}
         - sortedcontainers >=2.4.0,<3.0.0
     tests:
