@@ -35,7 +35,7 @@ outputs:
         # from poetry-generated setup.py
         - license-expression >=30.0.0,<31.0.0
         - packageurl-python >=0.11,<2
-        - py-serializable >=1.1.1,<2
+        - py-serializable >=2,<3
         - python >=${{ python_min }}
         - sortedcontainers >=2.4.0,<3.0.0
     tests:
