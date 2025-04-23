@@ -2,7 +2,8 @@
 schema_version: 1
 
 context:
-  version: "9.1.0"
+  version: "10.0.0"
+  python_check_max: "3.13"
 
 recipe:
   name: cyclonedx-python-lib
@@ -10,7 +11,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-${{ version }}.tar.gz
-  sha256: 86935f2c88a7b47a529b93c724dbd3e903bc573f6f8bd977628a7ca1b5dadea1
+  sha256: d0b3deb90659faf3acc909e487af216199c1a0ee976e1601ea13649bd6a070db
 
 build:
   number: 0
@@ -22,7 +23,7 @@ outputs:
     build:
       noarch: python
       script:
-        - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+        - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
         # avoid regressing on https://github.com/CycloneDX/cyclonedx-python-lib/issues/435
         - |-
           ${{ PYTHON }} -c "assert not (__import__('pathlib').Path(__import__('site').getsitepackages()[0]) / 'LICENSE').exists()"
@@ -40,9 +41,11 @@ outputs:
         - sortedcontainers >=2.4.0,<3.0.0
     tests:
       - python:
-          pip_check: true
-          python_version: ${{ python_min }}.*
           imports: cyclonedx
+          pip_check: true
+          python_version: 
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
 
   - package:
       name: cyclonedx-python-lib-with-json-validation
@@ -54,9 +57,11 @@ outputs:
         - jsonschema-with-format >=4.18,<5.0
     tests:
       - python:
-          pip_check: true
-          python_version: ${{ python_min }}.*
           imports: cyclonedx
+          pip_check: true
+          python_version: 
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
 
   - package:
       name: cyclonedx-python-lib-with-xml-validation
@@ -68,9 +73,11 @@ outputs:
         - lxml >=4,<6
     tests:
       - python:
-          pip_check: true
-          python_version: ${{ python_min }}.*
           imports: cyclonedx
+          pip_check: true
+          python_version: 
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
 
   - package:
       name: cyclonedx-python-lib-with-validation
@@ -83,9 +90,11 @@ outputs:
         - ${{ pin_subpackage("cyclonedx-python-lib-with-xml-validation", exact=True) }}
     tests:
       - python:
-          pip_check: true
-          python_version: ${{ python_min }}.*
           imports: cyclonedx
+          pip_check: true
+          python_version: 
+            - ${{ python_min }}.*
+            - ${{ python_check_max }}.*
       - files:
           source:
             - pyproject.toml
@@ -93,6 +102,7 @@ outputs:
         requirements:
           run:
             - ddt >=1.7.1,<2.0.0
+            - python ${{ python_min }}.*
             - pytest-cov
             - tox
             - xmldiff
