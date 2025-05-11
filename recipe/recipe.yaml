@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "10.0.0"
+  version: "10.0.1"
   python_check_max: "3.13"
 
 recipe:
@@ -11,7 +11,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-${{ version }}.tar.gz
-  sha256: d0b3deb90659faf3acc909e487af216199c1a0ee976e1601ea13649bd6a070db
+  sha256: 6c7a8c27a28279d22d92d4e0982e59beed3076a1aa4928a27830b0eaa2ca4f29
 
 build:
   number: 0
@@ -43,7 +43,7 @@ outputs:
       - python:
           imports: cyclonedx
           pip_check: true
-          python_version: 
+          python_version:
             - ${{ python_min }}.*
             - ${{ python_check_max }}.*
 
@@ -59,7 +59,7 @@ outputs:
       - python:
           imports: cyclonedx
           pip_check: true
-          python_version: 
+          python_version:
             - ${{ python_min }}.*
             - ${{ python_check_max }}.*
 
@@ -75,7 +75,7 @@ outputs:
       - python:
           imports: cyclonedx
           pip_check: true
-          python_version: 
+          python_version:
             - ${{ python_min }}.*
             - ${{ python_check_max }}.*
 
@@ -92,7 +92,7 @@ outputs:
       - python:
           imports: cyclonedx
           pip_check: true
-          python_version: 
+          python_version:
             - ${{ python_min }}.*
             - ${{ python_check_max }}.*
       - files:
