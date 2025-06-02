@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "10.0.1"
+  version: "10.0.2"
   python_check_max: "3.13"
 
 recipe:
@@ -11,7 +11,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-${{ version }}.tar.gz
-  sha256: 6c7a8c27a28279d22d92d4e0982e59beed3076a1aa4928a27830b0eaa2ca4f29
+  sha256: 2722ec36d5acc8d41117946967864094571bdc847986e41cfd74415ec9d02fd4
 
 build:
   number: 0
