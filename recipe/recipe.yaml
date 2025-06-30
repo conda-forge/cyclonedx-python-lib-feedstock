@@ -70,7 +70,7 @@ outputs:
     requirements:
       run:
         - ${{ pin_subpackage("cyclonedx-python-lib", exact=True) }}
-        - lxml >=4,<6
+        - lxml >=4,<7
     tests:
       - python:
           imports: cyclonedx
