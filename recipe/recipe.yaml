@@ -39,6 +39,7 @@ outputs:
         - py-serializable >=2,<3
         - python >=${{ python_min }}
         - sortedcontainers >=2.4.0,<3.0.0
+        - typing_extensions >=4.6,<5
     tests:
       - python:
           imports: cyclonedx
@@ -55,6 +56,7 @@ outputs:
       run:
         - ${{ pin_subpackage("cyclonedx-python-lib", exact=True) }}
         - jsonschema-with-format >=4.18,<5.0
+        - referencing >=0.28.4
     tests:
       - python:
           imports: cyclonedx
