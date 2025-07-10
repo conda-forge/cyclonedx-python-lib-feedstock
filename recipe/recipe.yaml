@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "10.3.0"
+  version: "10.4.0"
   python_check_max: "3.13"
 
 recipe:
@@ -11,7 +11,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/c/cyclonedx-python-lib/cyclonedx_python_lib-${{ version }}.tar.gz
-  sha256: d9f207bdddacbf5c22d50a0b4e0c878aee578e5452dae2b46f64729a438e9e05
+  sha256: 65c3c73c5b0318482b821ce61122a6e7651bf2a2949d1dfd6b016a6ed427419d
 
 build:
   number: 0
@@ -39,6 +39,7 @@ outputs:
         - py-serializable >=2,<3
         - python >=${{ python_min }}
         - sortedcontainers >=2.4.0,<3.0.0
+        - typing_extensions >=4.6,<5
     tests:
       - python:
           imports: cyclonedx
@@ -55,6 +56,7 @@ outputs:
       run:
         - ${{ pin_subpackage("cyclonedx-python-lib", exact=True) }}
         - jsonschema-with-format >=4.18,<5.0
+        - referencing >=0.28.4
     tests:
       - python:
           imports: cyclonedx
