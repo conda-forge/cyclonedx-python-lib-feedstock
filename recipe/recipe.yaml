@@ -30,16 +30,16 @@ outputs:
     requirements:
       host:
         - pip
-        - poetry-core >=1.8.1
+        - poetry-core
         - python ${{ python_min }}.*
       run:
         # from poetry-generated setup.py
         - license-expression >=30.0.0,<31.0.0
         - packageurl-python >=0.11,<2
-        - py-serializable >=2.1.0,<3
+        - py-serializable >=2.1.0,<3.0.0
         - python >=${{ python_min }}
         - sortedcontainers >=2.4.0,<3.0.0
-        - typing_extensions >=4.6,<5
+        - typing_extensions >=4.6.0,<5.0.0
     tests:
       - python:
           imports: cyclonedx
