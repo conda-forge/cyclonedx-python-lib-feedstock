@@ -5,7 +5,7 @@
 
 [workspace]
 name = "cyclonedx-python-lib-feedstock"
-version = "3.53.3"  # conda-smithy version used to generate this file
+version = "3.56.3"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/cyclonedx-python-lib-feedstock"
 authors = ["@conda-forge/cyclonedx-python-lib"]
 channels = ["conda-forge"]
