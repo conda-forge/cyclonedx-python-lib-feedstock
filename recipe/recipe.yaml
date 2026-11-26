@@ -57,7 +57,7 @@ outputs:
     requirements:
       run:
         - ${{ pin_subpackage("cyclonedx-python-lib", exact=True) }}
-        - jsonschema-with-format-nongpl >=4.25,<5.0
+        - jsonschema-with-format-nongpl >=4.25,<5
         - referencing >=0.28.4
     tests:
       - python:
